@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="Jerin Joseph" content="">
+
+  <title>Snimoz | Control Panel</title>
+
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="css/style.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="crossorigin=""/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css"/>
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <%- include('sidebar.ejs') %>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <%- include('topbar.ejs') %>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800">Add Restricted zone</h1>
+          <p class="mb-4">You can add a new restricted region by scrolling throught the map and drawing a polygon using 
+            various drawing tools available. (Use the line tool to get the distace between 2 points while plotting points). 
+            Make sure to provide a zone name & zone type and ensure that there is only one shape in the map while submitting.  
+          </p>
+          <div class="map-content">
+            <div id="map" style = "width:100%; height:550px;"></div>
+            <div class="zone-details" style="text-align: center; margin-top:30px;">
+              <label>Provide Zone Name and Type</label>
+              <form autocomplete="off" id="mapform" action="/add" onsubmit="func()" style="padding: 10px 0;">
+                <input id="zn" type="text"name="zoneName" placeholder="zone Name" style="margin-right:10px;">
+                <select  name="zoneType" id="cat" style="margin-top:.5rem; margin-right:10px;color: #535353;background-color: #fff;border: 1px solid #cccdd1;padding:.25rem .5rem;font-size: 1rem;line-height:1.5;border-radius: .2rem;height:2.5rem">
+                  <option selected disabled>zone type</option>
+                  <option value="Type 1">Type 1</option>
+                  <option value="Type 2">Type 2</option>
+                  <option value="Type 3">Type 3</option>
+                </select>
+                <input id="co" type="text" name="coordinates" value="" style="display: none;">
+                <button id="az" type="submit"class="btn btn-sm btn-danger shadow-sm" disabled>Register Zone</button>
+              </form>  
+            </div>
+          </div> 
+        </div>
+
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <%- include('footer.ejs') %>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <%- include('logoutModal.ejs') %>
+
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="/js/script.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="crossorigin=""></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>  
+  <script src="/js/addZone.js"></script>
+
+  <script>
+
+  </script>
+</body>
+</html>
+

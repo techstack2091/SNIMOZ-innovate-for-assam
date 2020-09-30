@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="Jerin Joseph" content="">
+
+  <title>Snimoz | Control Panel</title>
+
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="css/style.min.css" rel="stylesheet">
+  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="crossorigin=""/>
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <%- include('sidebar.ejs') %>
+    <!-- End of Sidebar -->
+
+    
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <%- include('topbar.ejs') %>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <h1 class="h3 mb-2 text-gray-800">Speed Violations</h1>
+            <p class="mb-4">The table below shows the data of people who have violated their speed during journey. Click on view in map to view locations and time of violation.</p>
+            <p class="mb-4" style="margin-top: 3px;" id="lastupdated"></p>
+            
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Violations</h6>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                     <thead>
+                       <tr>
+                         <th>Name</th>
+                         <th>Mobile</th>
+                         <th>Vechicle&nbsp;Reg</th>
+                         <th>Vechicle&nbsp;Type</th>
+                         <th>Journey&nbsp;Start Time</th>
+                         <th>No.&nbsp;of&nbsp;Violations</th> 
+                         <th>View&nbsp;Violations</th>
+                         <th>Journey&nbsp;ID</th>
+                       </tr>
+                      </thead>
+                      <tbody>
+                          
+                      </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>  
+          </div>
+          <!-- /.container-fluid -->
+
+        </div>
+
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <%- include('footer.ejs') %>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <%- include('logoutModal.ejs') %>
+
+  <!-- Map Modal-->
+  <div id="myModal" class="map-modal">
+    <div class="map-modal-content">
+      <span class="map-close">&times;</span>
+      <p>Violations are pinned as red. However too close locations are unable to view due to zoom limitations.<br>Click on pins to view the time of violation.</p>
+      <div id="map" style = "width:750px; height:500px"></div>
+      <div class="modal-details">
+        <p>Number of violations: <span id="vcount"></span></p>
+        <button class="btn btn-sm btn-danger shadow-sm">Register case</button>
+      </div>
+    </div>  
+  </div>
+  <script>
+
+    var dataset = JSON.parse('<%-JSON.stringify(dataset)%>');
+    console.log(dataset);
+
+  </script>
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="/js/script.min.js"></script>
+  <script src="/vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="crossorigin=""></script>
+  <script src="/js/speedViolation.js"></script>
+</body>
+</html>
+

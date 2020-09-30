@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="Jerin Joseph" content="">
+
+  <title>Snimoz | Control Panel</title>
+
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="css/style.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="crossorigin=""/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css"/>
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <%- include('sidebar.ejs') %>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <%- include('topbar.ejs') %>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800">Add Entry/Exit Points</h1>
+          <p class="mb-4">Tap on 2 locations, say A & B on the map using the marker availabler from the toolbar so that
+            location A act as the entry point while B act as the exit point and vice versa. Make sure there are only 2 markers
+            when clicking the submit button.  
+          </p>
+          <div class="map-content">
+            <div id="map" style = "width:100%; height:550px;"></div>
+            <div class="zone-details" style="text-align: center; margin-top:30px;">
+              <form autocomplete="off" id="mapform" action="/addPoints" onsubmit="func()" style="padding: 10px 0;">
+                <input id="co1" type="text" name="Point1" value="" hidden>
+                <input id="co2" type="text" name="Point2" value="" hidden>
+                <input id="co3" type="text"name="Point1Name" placeholder="Point 1" style="margin-right:10px;">
+                <input id="co4" type="text"name="Point2Name" placeholder="Point 2" style="margin-right:10px;">
+                <button id="submitpoints" type="submit"class="btn btn-sm btn-danger shadow-sm" disabled>Register Points</button>
+              </form>  
+            </div>
+          </div> 
+        </div>
+
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <%- include('footer.ejs') %>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <%- include('logoutModal.ejs') %>
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="/js/script.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="crossorigin=""></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>  
+  <script src="/js/addEntryExit.js"></script>
+  <script>
+
+  </script>
+</body>
+</html>
+
